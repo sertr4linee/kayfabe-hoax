@@ -13,7 +13,7 @@ export default function LandingPage() {
     return () => clearInterval(timer);
   }, []);
 
-  const formatTime = (time: any) => {
+  const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
@@ -37,10 +37,10 @@ export default function LandingPage() {
           </button>
         </div> */}
         <p className="text-black">Ce que ██████ a annoncé au sujet des guerres et des famines se réalise à notre époque
-Qu'est-ce qui le prouve ?
+Qu&apos;est-ce qui le prouve ?
 Les guerres
-██████ a dit "Nation se dressera contre Nation et Royaume contre Royaume" ██████ 24 verset 7
-Il y a eu plus de morts à cause des guerres à notre époque qu'à n'importe quelle autre époque
+██████ a dit &quot;Nation se dressera contre Nation et Royaume contre Royaume&quot; ██████ 24 verset 7
+Il y a eu plus de morts à cause des guerres à notre époque qu&apos;à n&apos;importe quelle autre époque
 En 100 ans, entre 1900 et 2000, il y a eu 3 fois plus de morts à cause des guerres que pendant les 1900 années précédentes</p>
       </div>
     </div>
