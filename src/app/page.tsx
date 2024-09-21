@@ -3,6 +3,7 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Home: NextPage = () => {
   return (
@@ -29,7 +30,10 @@ const Home: NextPage = () => {
           le recours aux techniques de l&quotopérateur au lieu de procédures formelles et des préjugés personnels peuvent tous conduire à des incidents et
           des événements graves.
         </h1>
-        <Image src="/78746552695.png" alt="Centered Image" className="center-image" />
+        <Link href="/46588654">
+        <h3 className='text-green-400'>here</h3>
+        </Link>
+        <Image width={100} height={200} src="/78746552695.png" alt="Centered Image" className="center-image" />
         <div className="link-container">
             <a href="/00101110.png" target="_blank" className="image-link text-blue-400">01</a><br></br>
             <a href="/00110001.png" target="_blank" className="image-link">10</a>
