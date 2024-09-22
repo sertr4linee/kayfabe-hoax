@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { motion } from "framer-motion";
 
 const arrowEmojis = [
@@ -16,7 +15,6 @@ const secretCombo = '⬅️➡️⬆️➡️➡️↔️⬆️⬇️⬇️⬇�
 export default function Component() {
   const [selectedEmojis, setSelectedEmojis] = useState('');
   const [lastClicked, setLastClicked] = useState<number | null>(null);
-  const router = useRouter();
 
   const handleEmojiClick = (emoji: string, index: number) => {
     const newSelectedEmojis = selectedEmojis + emoji;
