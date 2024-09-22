@@ -50,7 +50,7 @@ export default function Component() {
     }
 
     if (selectedEmojis === secretCombo) {
-      window.location.href = 'https://gofile.io/d/j8gxAg';
+      window.location.href = 'https://gofile.io/d/Xlwsz1';
     } else {
       const newAttempts = attempts + 1;
       setAttempts(newAttempts);
