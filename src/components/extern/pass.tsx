@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
 
 const arrowEmojis = [
@@ -10,11 +10,31 @@ const arrowEmojis = [
   '⤴️', '⤵️', '🔃', '🔄'
 ];
 
-const secretCombo = '⬅️➡️⬆️➡️➡️↔️⬆️⬇️⬇️⬇️➡️↗️🔀➡️⬆️↗️⬇️⬇️';
+const secretCombo = process.env.KEY;
 
 export default function Component() {
   const [selectedEmojis, setSelectedEmojis] = useState('');
   const [lastClicked, setLastClicked] = useState<number | null>(null);
+  const [attempts, setAttempts] = useState(0);
+  const [isBlocked, setIsBlocked] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(30);
+
+  useEffect(() => {
+    if (isBlocked) {
+      const timer = setInterval(() => {
+        setTimeLeft(prev => {
+          if (prev <= 1) {
+            setIsBlocked(false);
+            setAttempts(0);
+            clearInterval(timer);
+            return 30;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+      return () => clearInterval(timer);
+    }
+  }, [isBlocked]);
 
   const handleEmojiClick = (emoji: string, index: number) => {
     const newSelectedEmojis = selectedEmojis + emoji;
@@ -24,10 +44,21 @@ export default function Component() {
   };
 
   const handleValidate = () => {
+    if (isBlocked) {
+      alert(`Vous êtes bloqué. Veuillez attendre ${timeLeft} secondes.`);
+      return;
+    }
+
     if (selectedEmojis === secretCombo) {
-        window.location.href = 'https://gofile.io/d/j8gxAg';
+      window.location.href = 'https://gofile.io/d/j8gxAg';
     } else {
+      const newAttempts = attempts + 1;
+      setAttempts(newAttempts);
       alert('Combinaison incorrecte !');
+
+      if (newAttempts >= 3) {
+        setIsBlocked(true);
+      }
     }
   };
 
@@ -81,8 +112,8 @@ export default function Component() {
           </table>
         </div>
 
-        <button onClick={handleValidate}className="w-full">
-          Validate
+        <button onClick={handleValidate} className="w-full">
+          {isBlocked ? `Blocked: ${timeLeft}s left` : 'Validate'}
         </button>
       </div>
     </div>
