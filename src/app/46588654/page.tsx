@@ -17,7 +17,7 @@ const Page: NextPage = () => {
           {`@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Warang+Citi&display=swap');`}
         </style>
       </Head>
-      <Link href="/26316545">
+      <Link href="/life">
       <p>death.</p>
       </Link>
 
