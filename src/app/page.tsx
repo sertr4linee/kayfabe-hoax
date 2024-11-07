@@ -29,7 +29,7 @@ const Home: NextPage = () => {
           procédures opérationnelles ambiguës peuvent conduire à des erreurs humaines. Des procédures ambiguës ou facilement mal interprétées, des procédures contradictoires,
           le recours aux techniques de l&quotopérateur au lieu de procédures formelles et des préjugés personnels peuvent tous conduire à des incidents et
           des événements graves.
-          <br>983056431894913035</br>
+          983056431894913035
         </h1>
         <Link href="/46588654">
         <h3 className='text-green-400'>here</h3>
